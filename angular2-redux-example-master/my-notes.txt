@@ -19,3 +19,9 @@ map: {
 }
 ---------------------------------------------
 
+Version numbers equal or greater than:
+node -v = v5.4.1
+npm  -v = 3.3.12
+jspm -v = 0.16.23
+
+
