@@ -1,0 +1,107 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,300);
+
+@buttonNeutralColor: #7f8c8d;
+@buttonSuccessColor: #2ecc71;
+@buttonCancelColor: #c0392b;
+@bottonBorderColor: #34495e;
+@headerColor: #3498db;
+@fontColor: #2c3e50;
+@backgroundGrey: #ecf0f1;
+
+body {
+  color: @fontColor;
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
+  background-color: white;
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;;
+  font-size: 4em;
+  color: @headerColor;
+}
+h3, h2 {
+  margin-top: 0;
+}
+
+.conference-planner-app {
+  display: flex;
+  flex-wrap: wrap-reverse;
+
+  user {
+    flex-grow: 1;
+    flex-basis: 250px;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-color: white;
+    margin-bottom: 25px;
+  }
+
+  .conference-list {
+    flex-grow: 2;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px 0;
+    flex-basis: 250px;
+
+    .conference-content {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    conference {
+      padding: 15px;
+      background-color: @backgroundGrey;
+      flex-basis: 250px;
+      margin: 10px;
+      flex-grow: 1;
+    }
+
+    conference-details {
+      flex-grow: 1;
+    }
+  }
+}
+
+button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  line-height: 1.8;
+  appearance: none;
+  color: #fff;
+  background-color: @buttonNeutralColor;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px @bottonBorderColor;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: lighten(@buttonNeutralColor, 15%);
+  }
+
+  &:active {
+    box-shadow: 0 2px @bottonBorderColor;
+    transform: translateY(3px);
+  }
+
+  &.button-save {
+    background-color: @buttonSuccessColor;
+
+    &:hover {
+      background-color: lighten(@buttonSuccessColor, 10%);
+    }
+  }
+
+  &.button-cancel {
+    background-color: @buttonCancelColor;
+
+    &:hover {
+      background-color: lighten(@buttonCancelColor, 10%);
+    }
+  }
+}
+
+button:focus {
+  outline: none
+}

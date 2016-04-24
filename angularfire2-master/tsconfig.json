@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "declaration": true,
+    "removeComments": true
+  },
+  "files": [
+    "src/angularfire2.ts",
+    "src/angularfire2_worker_app.ts",
+    "src/angularfire2_worker_render.ts",
+    "src/angularfire2.spec.ts",
+    "src/utils/absolute_path_resolver.ts",
+    "src/utils/firebase_list_factory.spec.ts",
+    "src/utils/firebase_object_factory.ts",
+    "src/utils/firebase_object_factory.spec.ts",
+    "src/utils/firebase_list_observable.spec.ts",
+    "src/utils/firebase_object_observable.spec.ts",
+    "src/providers/auth.spec.ts",
+    "typings/main.d.ts"
+  ]
+}

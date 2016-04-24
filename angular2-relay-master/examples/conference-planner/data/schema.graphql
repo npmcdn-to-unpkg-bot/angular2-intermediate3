@@ -1,0 +1,77 @@
+input AttendConferenceInput {
+  conferenceId: ID!
+  clientMutationId: String!
+}
+
+type AttendConferencePayload {
+  conference: Conference
+  user: User
+  conferenceEdge: ConferenceEdge
+  clientMutationId: String!
+}
+
+type Conference implements Node {
+  id: ID!
+  name: String
+  description: String
+  date: String
+  attendance: Int
+  location: String
+  userIsAttending: Boolean
+}
+
+type ConferenceConnection {
+  pageInfo: PageInfo!
+  edges: [ConferenceEdge]
+}
+
+type ConferenceEdge {
+  node: Conference
+  cursor: String!
+}
+
+input LeaveConferenceInput {
+  conferenceId: ID!
+  clientMutationId: String!
+}
+
+type LeaveConferencePayload {
+  conference: Conference
+  leftConferenceId: ID
+  user: User
+  clientMutationId: String!
+}
+
+type Mutation {
+  attendConference(input: AttendConferenceInput!): AttendConferencePayload
+  leaveConference(input: LeaveConferenceInput!): LeaveConferencePayload
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Query {
+  root: Root
+  node(id: ID!): Node
+}
+
+type Root {
+  user: User
+  conferences: [Conference]
+}
+
+type User implements Node {
+  id: ID!
+  firstName: String
+  lastName: String
+  dob: String
+  attendingConferences(after: String, first: Int, before: String, last: Int): ConferenceConnection
+}
